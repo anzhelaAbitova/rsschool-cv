@@ -37,112 +37,77 @@
           <div class="code_example">
               <code>
                 <pre>
-              &lt!DOCTYPE html&gt
-              &lthtml&gt
-                &lthead&gt
-                  &ltmeta charset="UTF-8"&gt
-                  &lttitle&gtExample&lt/title&gt
-                  &ltlink rel="stylesheet" href="css/styles.css"&gt
-                &lt/head&gt
-                &ltbody&gt
-                  &ltheader&gt
-                    &ltdiv class="container"&gt
-                      &ltdiv class="clearfix"&gt
-                        &ltimg src="img/1.png" alt="logo" class="logo"&gt
-                        &ltnav&gt
-                          &ltul class="menu"&gt
-                            &ltli&gt&lta href="#"&gtCases&lt/a &gt &lt/li &gt
-                            &ltli>&lta href="#"&gtPrices&lt/a&gt&lt/li&gt
-                            &ltli>&lta href="#"&gtAbout us&lt/a&gt&lt/li&gt
-                            &ltli>&lta href="#"&gtContacts&lt/a&gt&lt/li&gt
-                          &lt/ul&gt
-                        &lt/nav&gt
-                      &lt/div&gt
-                      &ltdiv class="greeting"&gt
-                        &lth1&gtWelcome to Miracle Management&lt/h1&gt
-                        &lth2&gtMade your work even more effective!&lt/h2&gt
-                      &lt/div
-                        &lta class="button" href="#"&gtKnow more&lt/a&gt
-                      &lt/div&gt
-                  &lt/header&gt
-                  &lt/body&gt
-                &lt/html&gt
+                  const $getElById = (id) => document.getElementById(id);
+                  const random = (num) => Math.ceil(Math.random() * num);
+                  
+                  function tapCounting(btn, tapLimit){
+                    let count = 0;
+                    return function(){
+                      count++;
+                      btn.querySelector('span').innerText = tapLimit - count;
+                      if (count >= tapLimit) {
+                         btn.disabled = true;
+                      }
+                         return count;
+                    }
+                  }
+                  
+                  function minmaxDamage(item) {
+                      let damageArr = [item.maxDamage, item.minDamage];
+                      return damageArr[random(1)];
+                  }
+                  
+                  let selectorsM = {
+                    selectors(name) {
+                      this.elHP = document.getElementById(`health-${name}`);
+                      this.elProgressbar = document.getElementById(`progressbar-${name}`);
+                      this.namePlayer = document.getElementById(`name-${name}`);
+                      this.imgPlayer = document.getElementById(`img-${name}`);
+                   }
+                  }
+                  
+                  export {$getElById, random, tapCounting, minmaxDamage, selectorsM };
           </pre>
             </code>
             <code>
               <pre>
-              body {
-                margin: 0;
-                padding: 0;
-                font-family: Arial, sans-serif;
-                color: #222222;
-                box-sizing: border-box;
-              }
-              
-              header {
-                background: url(../img/background_header.jpg) no-repeat center top /cover;
-                height: 100vh;
-              }
-              
-              
-              .logo {
-                margin-top: 50px;
-                margin-left: 50px;
-                width: 70px;
-                height: 55px;
-              }
-              
-              .clearfix:after {
-                content:'';
-                display: table;
-                width: 100%;
-                clear: both;
-              }
-              
-              nav {
-                float: right;
-                margin-top: 50px;
-              }
-              
-              .menu li {
-                float: left;
-                margin-right: 50px;
-                display: block;
-              }
-              
-              .menu a {
-                color: #f6f6f6;
-                text-decoration: none;
-                font-weight: bold;
-              }
-              
-              .greeting h1 {
-                font-size: 70px;
-                color: #f6f6f6;
-                text-align: center;
-                margin-top: 150px;
-              }
-              
-              
-              .greeting h2 {
-                font-size: 40px;
-                color: #f6f6f6;
-                text-align: center;
-                font-weight: lighter;
-              }
-                          
-              .button {
-                color: #ffffff;
-                background-color: #a0522d;
-                text-align: center;
-                border-radius: 3px;
-                padding: 8px 10px;
-                margin: 0 auto;
-                display: block;
-                width: 150px;
-                text-decoration: none;
-                font-weight: bold;
-              }</pre></code>
+                * {
+                  margin:0;
+                  padding:0;
+                  box-sizing:border-box;
+                }
+                
+                body {
+                  font-family:"Roboto", "Arial", sans-serif;
+                  max-width: 99vw;
+                  height: 100%;
+                  overflow-x: hidden;
+                  position:relative;
+                  line-height:1.5;
+                }
+                
+                h1 {
+                  color:#131313;
+                  font-size:2.5rem;
+                  margin: 1rem auto;
+                  text-align:center;
+                }
+                
+                h2 {
+                  color:#131313;
+                  margin: 1rem auto;
+                  text-align:center;
+                }
+                
+                header {
+                  position:sticky;
+                }
+                
+                header nav,
+                footer nav {
+                  background-color:#008B8B;
+                  color:#fff;
+                }</pre></code>
             </div>
             <div class="resume_blocks">
               <p>As I said previously I've had contributed to some training projects, links provided above, and had 
