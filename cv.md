@@ -17,3 +17,41 @@ Academy and various online-seminars (mostly Skillbox), a lot of books and articl
 I have learned English at school, then had three courses at university. For the most part 
 all practice I had with English is reading a lot and watching courses. 
         
+As I said previously I've had contributed to some training projects, links provided above, and had 
+badges at HTML Academy.
+        
+[Page from HTML Academy](https://htmlacademy.ru/assets/courses/309/project-state-final.zip")
+        
+Examples of my code:
+```javascript
+const $getElById = (id) => document.getElementById(id);
+const random = (num) => Math.ceil(Math.random() * num);
+
+function tapCounting(btn, tapLimit){
+  let count = 0;
+  return function(){
+    count++;
+    btn.querySelector('span').innerText = tapLimit - count;
+    if (count >= tapLimit) {
+       btn.disabled = true;
+    }
+       return count;
+  }
+}
+
+function minmaxDamage(item) {
+    let damageArr = [item.maxDamage, item.minDamage];
+    return damageArr[random(1)];
+}
+
+let selectorsM = {
+  selectors(name) {
+    this.elHP = document.getElementById(`health-${name}`);
+    this.elProgressbar = document.getElementById(`progressbar-${name}`);
+    this.namePlayer = document.getElementById(`name-${name}`);
+    this.imgPlayer = document.getElementById(`img-${name}`);
+ }
+}
+
+export {$getElById, random, tapCounting, minmaxDamage, selectorsM };
+```
